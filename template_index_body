@@ -64,13 +64,14 @@
 <!-- QUI EST EN LIGNE -------------->
 
 <!-- BEGIN disable_viewonline -->
-<div class="qeel-heading">
+
+<div class="qeel">
+  
+  <div class="qeel-heading">
     <span class="qeel-heading-deco">❈</span>
     <span>Qui est en ligne ?</span>
     <span class="qeel-heading-deco">❈</span>
 </div>
-
-<div class="qeel">
   
     <div class="qeel-left">
       
