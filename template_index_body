@@ -66,91 +66,64 @@
 <!-- BEGIN disable_viewonline -->
 
 <div class="qeel">
-  
+
   <div class="qeel-heading">
     <span class="qeel-heading-deco">❈</span>
     <span>Qui est en ligne ?</span>
     <span class="qeel-heading-deco">❈</span>
-</div>
-  
-    <div class="qeel-left">
-      
-      <div class="qeel-left-txt"><span class="qeel-title">Les complots</span><p>se trament en leurs présence.</p></div>
-      
-      <div class="qeel-left-table">     
-      <!-- Connectés en ce moment -->
-        <div id="online_users">{LOGGED_IN_USER_LIST}</div>
-      
-        <!-- X connectés :: 1 membre, 0 invisible, 0 invité -->
+  </div>
+
+  <div class="qeel-left">
+    <div class="qeel-left-1"><span class="qeel-title">Les complots</span><p>se trament en leurs présence.</p></div>
+    <div class="qeel-left-2">
+      <div id="online_users">{LOGGED_IN_USER_LIST}</div>
       <div id="total_users">{TOTAL_USERS_ONLINE}</div>
-      </div>
-    </div>
-
-    <div class="qeel-middle">
-        
-   <div class="groups">
-        <a class="g_humain">Humain</a>
-        <a class="g_elfe">Elfe</a>
-        <span class="groups-deco">❈</span>
-        <a class="g_nain">Nain</a>
-        <a class="g_pnj">PNJ</a>
-    </div>
-      
-      <div class="qeel-stat">
-              <!-- Total posts : X messages / Total users : X membres -->
-       <span id="qeel_members_posts">Nos {TOTAL_USERS} ont déjà contés {TOTAL_POSTS}</span>
-        <br /><br />
-
-        {L_CONNECTED_MEMBERS}<br />
-      </div>
-      
-          <div class="qeel-birthdays">
-        <span class="bday-today">{L_WHOSBIRTHDAY_TODAY}</span><br />
-        <span class="bday-week">{L_WHOSBIRTHDAY_WEEK}</span>
-    </div>
-      
-      <div class="qeel-img"></div>
-    </div>
-
-
-    <!-- derniers inscrits -->
-    <div class="qeel-right" id="last_connected">
-
-  
-  <!-- Dernier inscrit -->
-        <div id="last_user">
-          
-          <span id="newest_user">
-            <span class="qeel-title"> {NEWEST_USER}</span>
-            </span>
-	<span id="lastuser_avatar"></span>
-          <p>vient de rejoindre<br/> l'Âge des Serments Brisés.</p>
-
     </div>
   </div>
-      
-         <div class="credits">Ici crédits de ce qui qui l’a fait et qui qui l’admistre avec l’optimisation qui va bien. Et encore un peu plus de blabla.</div>
+
+  <div class="qeel-middle">
+    <div class="groups">
+      <a class="g_humain">Humain</a>
+      <a class="g_elfe">Elfe</a>
+      <span class="groups-deco">❈</span>
+      <a class="g_nain">Nain</a>
+      <a class="g_pnj">PNJ</a>
+    </div>
+    <div class="qeel-stat">
+      <span id="qeel_members_posts">Nos {TOTAL_USERS} aventuriers ont déjà contés {TOTAL_POSTS} légendes</span>
+      <span id="qeel_connected">{L_CONNECTED_MEMBERS}</span>
+    </div>
+    <div class="qeel-birthdays">
+      <span class="bday-today">{L_WHOSBIRTHDAY_TODAY}</span>
+      <span class="bday-week">{L_WHOSBIRTHDAY_WEEK}</span>
+    </div>
+    <div class="qeel-img"></div>
+  </div>
+
+  <div class="qeel-right" id="last_connected">
+    <div id="last_user">
+      <span id="newest_user"><span class="qeel-title">{NEWEST_USER}</span></span>
+      <span id="lastuser_avatar"></span>
+      <p>vient de rejoindre<br/>l'Âge des Serments Brisés.</p>
+    </div>
+  </div>
+
+  <div class="credits">BROKENS OATHS est un forum inspiré de LOTR, GOT, Warhammer Old World, Witcher, Mare Nostrum, D&D et Axis and Allies, et la propriété de ses créateurs (Major Highteeb + NES) et de ses modérateurs (XXX). Le forum est optimisé pour Google Chrome. Merci à Genius Panda pour son Blank Theme modifié par nos soins. La V1 a été réalisé par Dezaia et Nes. Toute reproduction partielle ou totale est formellement interdite, merci de respecter notre travail. © BROKENS OATHS.</div>
 </div>
 
-
-
-<!-- Changement de texte des informations du QEEL -->
 <script type="text/javascript">
   $("#last_user").html($("#last_user").html().replace("L'utilisateur enregistré le plus récent est", ""));
-  
-  $("#qeel_posts").html($("#qeel_posts").html().replace("Nos membres ont posté un total de", ""));
-  
-  $("#qeel_members").html($("#qeel_members").html().replace("Nous avons", ""));
-  
   $("#total_users").html($("#total_users").html().replace("Il y a en tout", ""));
   $("#total_users").html($("#total_users").html().replace("utilisateur en ligne", "connecté"));
   $("#total_users").html($("#total_users").html().replace("utilisateurs en ligne", "connectés"));
-  
   $("#online_users").html($("#online_users").html().replace("Utilisateurs enregistrés", "En ligne"));
-  
-  $("#last_connected").html($("#last_connected").html().replace("Membres connectés au cours des 24 dernières heures :", "Connectés récemment"));
+  $("#qeel_members_posts").html($("#qeel_members_posts").html().replace(/Nous avons|membres enregistrés|Nos membres ont posté un total de|messages/g, ""));
+  $("#qeel_connected").html($("#qeel_connected").html().replace(/Membres connectés au cours des \d+ dernières heures\s*:/, "Connectés récemment :"));
+  if($(".bday-today").text().indexOf("Aucun membre")>-1){$(".bday-today").text("Personne pour festoyer à la taverne aujourd’hui !");}
+    else{$(".bday-today").html($(".bday-today").html().replace(/Membres fêtant leur anniversaire[^:]*:/, "Festoyons en l’honneur de :").replace(/\s*\(\d+\)/g, ""));}
+  if($(".bday-week").text().indexOf("Aucun membre")>-1){$(".bday-week").text("Point de festivités à la taverne cette semaine !");}
+  else{$(".bday-week").html($(".bday-week").html().replace(/Membres fêtant leur anniversaire[^:]*:/, "Préparez vos chopes, nous festoierons bientôt en l’honneur de :").replace(/\s*\(\d+\)/g, ""));}
 </script>
-
 
 <!-- Conteneur des infos CB -->
 <!-- BEGIN switch_chatbox_activate -->
