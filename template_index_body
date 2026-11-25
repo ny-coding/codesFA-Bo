@@ -94,7 +94,7 @@
       <span id="qeel_connected">{L_CONNECTED_MEMBERS}</span>
     </div>
     <div class="qeel-birthdays">
-      <span class="bday-today">{L_WHOSBIRTHDAY_TODAY}</span>
+      <span class="bday-today">{L_WHOSBIRTHDAY_TODAY}</span><br>
       <span class="bday-week">{L_WHOSBIRTHDAY_WEEK}</span>
     </div>
     <div class="qeel-img"></div>
